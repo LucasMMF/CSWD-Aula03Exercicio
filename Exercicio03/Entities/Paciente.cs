@@ -18,7 +18,7 @@ namespace Exercicio03.Entities
 
         #region Associations
 
-        public List<AtendimentoMedico> AtendimentosMedicos;
+        public List<AtendimentoMedico> AtendimentosMedicos { get; set; } = [];
 
         #endregion
     }

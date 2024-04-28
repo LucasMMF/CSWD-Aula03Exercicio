@@ -18,7 +18,7 @@ namespace Exercicio03.Entities
 
         #region Associations
 
-        public List<PrescricaoMedica> PrescricoesMedicas { get; set; }
+        public List<PrescricaoMedica> PrescricoesMedicas { get; set; } = [];
 
         #endregion
     }
