@@ -1,4 +1,5 @@
 ﻿using Exercicio03.Entities;
+using Exercicio03.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -99,7 +100,32 @@ namespace Exercicio03.Controllers
 
                 #region Envia para serialização e persistência dos dados em XML / JSON
 
-                // TODO
+                Console.Write("\nINFORME (1)JSON ou (2)XML: ");
+                var opcao = int.Parse(Console.ReadLine());
+
+                AtendimentoRepository atendimentoRepository = null!;
+
+                switch(opcao)
+                {
+                    case 1:
+                        atendimentoRepository = new AtendimentoRepositoryJSON();
+                        break;
+
+                    case 2:
+                        atendimentoRepository = new AtendimentoRepositoryXML();
+                        break;
+
+                    default:
+                        Console.WriteLine("\nFORMATO INVÁLIDO!");
+                        break;
+                }
+
+                if (atendimentoRepository != null)
+                {
+                    atendimentoRepository.ExportData(atendimentoMedico);
+
+                    Console.WriteLine("\nDADOS GRAVADOS COM SUCESSO!");
+                }
 
                 #endregion
 
